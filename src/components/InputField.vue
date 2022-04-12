@@ -19,8 +19,8 @@
 export default {
     name: 'InputField',
     props: {
-      editInput: String,
-      editIndex: Object
+      editIndex: Object,
+      editInput: String
     },
 
     data() {

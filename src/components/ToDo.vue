@@ -3,7 +3,6 @@
     <section class="todo">
       <InputField
         :editIndex="editIndex"
-        :inputTodo="inputTodo"
         :editInput="editInput"
         @submitEventTodo="submitTodo"
         @submitEditTodo="submitEdit"
@@ -40,7 +39,9 @@ export default {
     };
   },
   mounted() {
-    this.items = getLocalStorage("items");
+    if (localStorage.getItem("items")) {
+      this.items = getLocalStorage("items");
+    }
   },
   methods: {
     submitTodo(addedValue) {
