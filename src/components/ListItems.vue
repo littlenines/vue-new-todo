@@ -1,18 +1,20 @@
 <template>
   <div class="todo-items">
     <ul>
-      <li v-for="(item, index) in items" :key="item.id" class="todo-item">
-        <p :class="{ done: item.done }" @click="itemDone(item)">
+      <li v-for="(item, index) in items" :key="item.id" class="todo-item" data-test="list">
+        <p :class="{ done: item.done }" @click="itemDone(item)" data-test="label">
           {{ item.label }}
         </p>
         <div class="todo-icons">
           <i
             @click="editTodo(item, index)"
             class="mdi mdi-pencil-circle edit-icon"
+            data-test="edit"
           ></i>
           <i
             @click="deleteTodo(index)"
             class="mdi mdi-close-circle delete-icon"
+            data-test="delete"
           ></i>
         </div>
       </li>

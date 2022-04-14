@@ -1,16 +1,17 @@
 <template>
   <div class="todo-form">
-        <input type="text" v-model="inputTodo"  class="todo-input-field" maxlength="35"/>
+        <input type="text" v-model="inputTodo"  class="todo-input-field" maxlength="35" data-test="input"/>
         <button
           @click="submitTodo"
           v-if="editIndex === null"
           class="todo-button"
+          data-test="button"
         >
           ADD
         </button>
         <div class="todo-edit" v-else>
-          <button class="edit-button"><i @click="submitEdit" class="mdi mdi-check checked-icon"></i></button>
-          <button class="edit-button"><i @click="closeEdit" class="mdi mdi-close"></i></button>
+          <button class="edit-button" @click="submitEdit"><i class="mdi mdi-check checked-icon"></i></button>
+          <button class="edit-button" @click="closeEdit" data-test="edit-input"><i class="mdi mdi-close"></i></button>
         </div>
       </div>
 </template>
