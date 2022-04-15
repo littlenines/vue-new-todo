@@ -50,7 +50,7 @@ export default {
       closeEdit() {
         this.$emit("closeEditTodo")
         this.inputTodo = ""
-        this.editIndex = null;
+        this.editIndex = null; //todo: ne radi ovo jer je prop, stavi -1 umesto null
       }
     }
 }

@@ -4,6 +4,7 @@
       <li v-for="(item, index) in items" :key="item.id" class="todo-item" data-test="list">
         <p :class="{ done: item.done }" @click="itemDone(item)" data-test="label">
           {{ item.label }}
+          <mdicon name="hamburger" />
         </p>
         <div class="todo-icons">
           <i
@@ -11,6 +12,7 @@
             class="mdi mdi-pencil-circle edit-icon"
             data-test="edit"
           ></i>
+          <!-- todo: edit whitespace -->
           <i
             @click="deleteTodo(index)"
             class="mdi mdi-close-circle delete-icon"
