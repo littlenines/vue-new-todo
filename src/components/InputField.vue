@@ -3,15 +3,15 @@
         <input type="text" v-model="inputTodo"  class="todo-input-field" maxlength="35" data-test="input"/>
         <button
           @click="submitTodo"
-          v-if="editIndex === null"
+          v-if="editIndex === -1"
           class="todo-button"
           data-test="button"
         >
           ADD
         </button>
         <div class="todo-edit" v-else>
-          <button class="edit-button" @click="submitEdit"><i class="mdi mdi-check checked-icon"></i></button>
-          <button class="edit-button" @click="closeEdit" data-test="edit-input"><i class="mdi mdi-close"></i></button>
+          <button class="edit-button" @click="submitEdit"><mdicon name="check" class="checked-icon"/></button>
+          <button class="edit-button" @click="closeEdit" data-test="edit-input"><mdicon name="close" /></button>
         </div>
       </div>
 </template>
@@ -20,7 +20,7 @@
 export default {
     name: 'InputField',
     props: {
-      editIndex: Object,
+      editIndex: Number,
       editInput: String
     },
 
@@ -50,7 +50,6 @@ export default {
       closeEdit() {
         this.$emit("closeEditTodo")
         this.inputTodo = ""
-        this.editIndex = null; //todo: ne radi ovo jer je prop, stavi -1 umesto null
       }
     }
 }

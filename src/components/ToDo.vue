@@ -30,7 +30,7 @@ export default {
   },
   data() {
     return {
-      editIndex: null,
+      editIndex: -1,
       editInput: "",
       items: [
         { id: 1, label: "Buy milk", done: false },
@@ -63,13 +63,14 @@ export default {
     },
 
     submitEdit(inputValue) {
+      if (!inputValue.trim()) {return null;}
       this.items[this.editIndex].label = inputValue;
-      this.editIndex = null;
+      this.editIndex = -1;
       setLocalStorage("items", this.items);
     },
 
     closeEdit() {
-      this.editIndex = null;
+      this.editIndex = -1;
     },
 
     deleteTodo(index) {

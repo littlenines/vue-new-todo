@@ -4,20 +4,14 @@
       <li v-for="(item, index) in items" :key="item.id" class="todo-item" data-test="list">
         <p :class="{ done: item.done }" @click="itemDone(item)" data-test="label">
           {{ item.label }}
-          <mdicon name="hamburger" />
         </p>
         <div class="todo-icons">
-          <i
-            @click="editTodo(item, index)"
-            class="mdi mdi-pencil-circle edit-icon"
-            data-test="edit"
-          ></i>
-          <!-- todo: edit whitespace -->
-          <i
-            @click="deleteTodo(index)"
-            class="mdi mdi-close-circle delete-icon"
-            data-test="delete"
-          ></i>
+          <mdicon name="PencilCircle" @click="editTodo(item, index)"
+            class="edit-icon"
+            data-test="edit"/>
+          <mdicon name="CloseCircle" @click="deleteTodo(index)"
+            class="delete-icon"
+            data-test="delete"/>
         </div>
       </li>
     </ul>
@@ -64,6 +58,10 @@ export default {
   border-radius: 10px;
   border: 2px solid $black;
   background-color: $item-background;
+}
+
+.todo-icons {
+  display: flex;
 }
 
 .done {
